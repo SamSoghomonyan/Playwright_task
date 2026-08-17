@@ -26,7 +26,7 @@ export class LoginPage {
   }
 
   async navigateToLogin() {
-    await this.page.goto('https://practicesoftwaretesting.com/');
+    await this.page.goto('h/');
     await this.signInNavButton.click();
   }
 
