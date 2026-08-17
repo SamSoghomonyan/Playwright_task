@@ -11,6 +11,7 @@ export class SearchPage {
   readonly searchResultCount: Locator;
   readonly searchTermBadge: Locator;
   readonly productCards: Locator;
+  readonly productName: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -19,17 +20,16 @@ export class SearchPage {
     this.searchSubmitButton = page.locator('[data-test="search-submit"]');
     this.searchResetButton = page.locator('[data-test="search-reset"]');
 
-    // Search Results UI
     this.noResultsMessage = page.locator('[data-test="no-results"]');
     this.searchResultCount = page.locator('[data-test="search-result-count"]');
     this.searchTermBadge = page.locator('[data-test="search-term"]');
 
     this.productCards = page.locator('[data-test^="product-"]');
+    this.productName = page.locator('[data-test="product-name"]');
   }
 
-
   async navigate() {
-    await this.page.goto('https://practicesoftwaretesting.com/');
+    await this.page.goto('/');
   }
 
   async search(query: string) {
@@ -45,11 +45,21 @@ export class SearchPage {
     await this.productCards.first().click();
   }
 
+
   async expectNoResults() {
     await expect(this.noResultsMessage).toBeVisible();
   }
 
   async expectSearchTerm(term: string) {
     await expect(this.searchTermBadge).toContainText(term.trim());
+  }
+
+  async expectFirstProductVisible() {
+    await expect(this.productCards.first()).toBeVisible();
+  }
+
+  async expectProductName(expectedName: string) {
+    await expect(this.productName).toBeVisible();
+    await expect(this.productName).toContainText(expectedName);
   }
 }
