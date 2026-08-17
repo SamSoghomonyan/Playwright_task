@@ -10,7 +10,6 @@ git clone https://github.com/SamSoghomonyan/Playwright_task.git
 
 ```bash
 npm install
-npx playwright install --with-deps
 ```
 
 ## 3. Run tests
