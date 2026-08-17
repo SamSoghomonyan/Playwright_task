@@ -11,9 +11,7 @@ export class CatalogPage {
     this.page = page;
 
     this.filtersContainer = page.locator('#filters');
-
     this.productNameDetail = page.locator('[data-test="product-name"]');
-
     this.productCards = page.locator('[data-test^="product-"]');
   }
 
@@ -27,6 +25,11 @@ export class CatalogPage {
 
   async clickFirstProduct() {
     await this.productCards.first().click();
+  }
+
+
+  async expectFirstProductVisible() {
+    await expect(this.productCards.first()).toBeVisible();
   }
 
   async expectProductDetailsLoaded() {
