@@ -16,7 +16,7 @@ export class CatalogPage {
   }
 
   async navigate() {
-    await this.page.goto('https://practicesoftwaretesting.com/');
+    await this.page.goto('/');
   }
 
   async filterBySubCategory(categoryName: string) {

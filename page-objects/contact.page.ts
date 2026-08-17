@@ -40,7 +40,7 @@ export class ContactPage {
 
 
   async navigateToContact() {
-    await this.page.goto('https://practicesoftwaretesting.com/');
+    await this.page.goto('/');
     await this.navContactButton.click();
   }
 

@@ -68,7 +68,7 @@ export class RegisterPage {
   }
 
   async navigateToRegister() {
-    await this.page.goto('https://practicesoftwaretesting.com/');
+    await this.page.goto('/');
     await this.signInNavButton.click();
     await this.registerLink.click();
   }
